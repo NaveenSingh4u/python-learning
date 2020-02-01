@@ -4,24 +4,27 @@ import sys
 class Customer:
     """Customer class for bank related operation"""
     bankName = "MYBANK"
+    amount = 0
 
     def __int__(self, name, amount=0):
         self.name = name
         self.amount = amount
 
+    @classmethod
     def withdraw(self, withdrawAmount):
         if self.amount < withdrawAmount:
             print("Insufficient fund")
             sys.exit()
         else:
             self.amount = self.amount - withdrawAmount
-            print("Withdraw success\n Current balance : " + self.amount)
+            print("Withdraw success\n Current balance : ", str(self.amount))
 
+    @classmethod
     def deposit(self, depositAmount):
         self.amount = self.amount + depositAmount
 
 
-name = input('Enter Your name')
+name = input('Enter Your name: ')
 customer = Customer();
 print("Welcome to ", customer.bankName)
 
