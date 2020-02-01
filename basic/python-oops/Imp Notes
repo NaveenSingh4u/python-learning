@@ -1,0 +1,16 @@
+If we are not using any decorator :
+-----------------------------------
+For class method , @classmethod decorator is mandatory.
+For static method , @staticmethod decorator is optional.
+
+Eg1:
+class Test:
+        def m1():
+           print('Some method')
+t = Test()
+t1.m1()
+
+TypeError: m1() takes 0 positional arguments but 1 was given.
+
+In above example, Python will consider the method as instance method, but we are not declaring
+self variable.
