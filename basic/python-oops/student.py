@@ -15,9 +15,19 @@ class Student:
         # Validation stuff
         return self.marks
 
-    def __init__(self, rollno, name):
-        self.rollno = rollno
+    # def __init__(self, rollno, name):
+    #     self.rollno = rollno
+    #     self.name = name
+
+    def __init__(self, name, marks):
         self.name = name
+        self.marks = marks
+
+    def __lt__(self, other):
+        return self.marks < other.marks
+
+    def __gt__(self, other):
+        return self.marks > other.marks
 
     # when we will call this method marks field will be added in that calling object
     def info(self):
@@ -35,31 +45,45 @@ class Student:
 
     # use static method for creating utility.
     @staticmethod
-    def findAverage(x,y):
-        print('Average',(x+y)/2)
+    def findAverage(x, y):
+        print('Average', (x + y) / 2)
 
-s1 = Student(100, 'Ram lal')
-print(s1.rollno)
-print(s1.name)
-s1.talk()
-s1.getCollegeName()
-s1.info()
-print(s1.__dict__)
 
-s2 = Student(101, 'Ram manohar')
-s2.talk()
-s2.findAverage(20,60)
-# We can add attribute in instance
-s2.wife = 'Renuka'
-print(s2.__dict__)
+# s1 = Student(100, 'Ram lal')
+# print(s1.rollno)
+# print(s1.name)
+# s1.talk()
+# s1.getCollegeName()
+# s1.info()
+# print(s1.__dict__)
+
+# s2 = Student(101, 'Ram manohar')
+# s2.talk()
+# s2.findAverage(20, 60)
+# # We can add attribute in instance
+# s2.wife = 'Renuka'
+# print(s2.__dict__)
 
 # if method is decorator by @staticmethod..Call method directly by class
-Student.findAverage(20,60)
+Student.findAverage(20, 60)
 
-n = int(input("Enter the number of students:"))
-for i in range(n):
-    name = input('Enter the Student name')
-    marks = int(input('Enter Student marks'))
-    s = Student()
-    s.setName(name)
-    s.setMarks(marks)
+# n = int(input("Enter the number of students:"))
+# for i in range(n):
+#     name = input('Enter the Student name')
+#     marks = int(input('Enter Student marks'))
+#     s = Student()
+#     s.setName(name)
+#     s.setMarks(marks)
+
+s1 = Student('Durga', 100)
+s2 = Student('Ravi', 200)
+
+# Overloading less then operator for object
+print('Overloading less then operator for object')
+print(s1 < s2)
+print(s2 < s1)
+
+# Overloading greater then operator for object
+print('Overloading greater then operator for object')
+print(s1 > s2)
+print(s2 > s1)
