@@ -1,0 +1,21 @@
+Suppose that in a DB 20K user data are stored. We have to send mail each user.
+Surely we'll not send mail one by one. We'll use Thread.
+
+For example 2 thread use 10K user per thread.
+
+def send_mail(list):
+    # Business logic code for sending mail
+
+l1 = List of 10k data
+l2 = List of other 10k data
+
+t1 = Thread(target=send,args=(l1,)) # passing first list
+t2 = Thread(target=send,args=(l2,)) # passing second list
+
+t1.start()
+t2.start()
+
+--------------------------------------------------------------------------------
+Deamon Thread : The main purpose is to provide support for non-deamon thread.
+eg: Garbage Collector.
+
